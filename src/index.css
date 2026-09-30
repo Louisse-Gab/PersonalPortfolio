@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'Segoe UI', sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+p,
+li,
+article,
+.project-card p,
+.justified-copy,
+.justified-copy p,
+.justified-copy li {
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
+}
+
+.marquee-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.9rem 1.2rem;
+  color: #0f172a;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+  letter-spacing: 0.02em;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.75rem;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.12), transparent 30%, rgba(16, 185, 129, 0.08));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: #f8fafc;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.1rem;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-link:hover {
+  transform: translateX(4px);
+  border-color: rgba(125, 211, 252, 0.7);
+  background: rgba(14, 165, 233, 0.08);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
