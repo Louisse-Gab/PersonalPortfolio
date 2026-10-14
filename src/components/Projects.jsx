@@ -19,11 +19,15 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8"
+    >
       <div className="mb-10 max-w-2xl">
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">
           Selected work
         </p>
+
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Projects that reflect my frontend, UI/UX, and full-stack development growth.
         </h2>
@@ -60,7 +64,9 @@ export default function Projects() {
                   {project.category}
                 </span>
 
-                <span className="text-sm text-slate-400">{project.date}</span>
+                <span className="text-sm text-slate-400">
+                  {project.date}
+                </span>
               </div>
 
               <h3 className="mt-4 text-2xl font-bold text-slate-900">
@@ -80,13 +86,27 @@ export default function Projects() {
               </div>
             </div>
 
-            <Link
-              to={`/projects/${project.slug}`}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
-            >
-              View Project
-              <span aria-hidden="true">→</span>
-            </Link>
+            <div className="mt-6 flex flex-col gap-3">
+              <Link
+                to={`/projects/${project.slug}`}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
+              >
+                View Project
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                >
+                  Visit Live Website
+                  <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
           </article>
         ))}
       </div>
